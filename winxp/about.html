@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="Retro.css">
+<script src="Utils.js"></script>
+<script> // IFRAME COMPATIBILITY 
+    if (window.parent !== window) { document.documentElement.classList.add('inside-iframe'); }
+</script>
+<div class="page">
+    <div class="content">
+        <img class="banner" src="img/banner/Kirby.gif" alt="Cool header image">
+        <div class="block">
+            <p>
+                Hello, my name is Will Boeckman and I am a Computer Information
+                Systems (CIS) Major at UW-Stevens Point! I have always had an
+                interest in computers ever since our family got one when I was a
+                kid, and ultimately has led me to persue a degree.
+            </p>
+            <p style="text-align: right;">
+                <i>The family computer was an XP machine, hence this site's style!</i>
+                <img class="img-icon" src="img/icons/XP.png" alt="Mini XP logo here">
+            </p>
+        </div>
+        <div class="col-3">
+            <div>
+                <img src="img/gallery/20240502_185823.jpg" alt="Cool ETS pic here">
+            </div>
+            <div>
+                <img src="img/gallery/20240502_190627.jpg" alt="Cool ETS pic here">
+            </div>
+            <div>
+                <img src="img/gallery/20240502_185514.jpg" alt="Cool ETS pic here">
+            </div>
+        </div>
+        <div class="block">
+            <p>
+                I currently work for Event Technical Services at the University
+                Center in the DUC. I help provide audio/visual technical services
+                for student and university-affiliated organizations, concerts,
+                movie screenings, and much more!
+            </p>
+        </div>
+        <div class="col-2 w50 centered">
+            <div>
+                <img src="img/gallery/20240502_193730.jpg" alt="Camera 1">
+            </div>
+            <div>
+                <img src="img/gallery/20240502_193637.jpg" alt="Camera 1">
+            </div>
+        </div>
+        <div class="block">
+            <p>
+                One of my hobbies is Videography and Photography. I had a handful
+                of opportunities over the past two semesters to experiment, so go
+                check out my
+                <!-- the Window Manager should be loaded by the time this content gets -->
+                <!-- injected into the main html document, so this (in theory) should  -->
+                <!-- only fail when ran outside of a live server environment           -->
+                <!-- (see main HTML document's lower script section for more info)     -->
+                <a onclick="wm.open_window('gallery');">image gallery<img class="img-icon" src="img/icons/folder-photos.png" alt="Mini XP logo here"></a>!
+            </p>
+            <p>Well, Thats all for this section! Poke around the desktop to find more pages to explore!</p>
+        </div>
+
+    </div>
+</div>

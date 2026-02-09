@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="Retro.css">
+<script src="Gallery.js"></script>
+<script> // IFRAME COMPATIBILITY 
+    if (window.parent !== window) { document.documentElement.classList.add('inside-iframe'); }
+</script>
+<div class="page">
+    <div class="content">
+        <div id="bigscreen">
+            <div id="bigscreen-image"></div>
+            <div id="bigscreen-desc"><p></p></div>
+            <div id="bigscreen-exit" onclick="close_bigscreen()">X</div>
+        </div>
+        <div class="block">
+            <h1 style="text-align: center;">My Photo Gallery</h1>
+        </div>
+        <div id="gallery" class="gallery">
+            <img src="img/gallery/UWSP Sunset 24' William Boeckman.png" alt="UWSP Sunset">
+            <img src="img/gallery/Spring Break 24' Flower Tree William Boeckman.jpg" alt="Flowering Tree, Arkansas">
+            <img src="img/gallery/Spring Break 24' Snail William Boeckman.jpg" alt="Sammy the Snail">
+            <img src="img/gallery/Eclipse 24' William Boeckman.png" alt="Eclipse 24' @ UWSP">
+            <img src="img/gallery/TRNP 24' Landscape 1 William Boeckman.jpg" alt="Theodore Roosevelt National Park 24'">
+        </div>
+    </div>
+</div>
+<script>
+    // gm.register_images(); // too late to fix :(
+</script>

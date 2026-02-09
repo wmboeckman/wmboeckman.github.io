@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="Retro.css">
+<script> // IFRAME COMPATIBILITY 
+    if (window.parent !== window) { document.documentElement.classList.add('inside-iframe'); }
+</script>
+<style>
+    input,
+    label,
+    textarea {
+        display: block;
+    }
+
+    input,
+    textarea {
+        margin-bottom: 1vw;
+    }
+
+    form {
+        width: 70%;
+        border: 5px dotted black;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        padding-top: 1vw;
+
+        background-color: hsl(51, 100%, 78%);
+    }
+
+    .form-group {
+        display: block;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-group * {
+        display: inline;
+    }
+
+    label,
+    input[type=text],
+    input[type=email],
+    textarea {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    input[type=text],
+    input[type=email],
+    textarea {
+        border: 0.1em solid black;
+        border-radius: 0.5em;
+        padding-left: 0.25em;
+    }
+
+    input[type=submit] {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+        border: 0.1em solid black;
+        border-radius: 0.5em;
+        background-color: greenyellow;
+    }
+
+    textarea {
+        max-width: 90%;
+    }
+</style>
+<div class="page">
+    <div class="content">
+        <img class="banner b" src="img/banner/sponge-letter.gif" alt="Cool header image">
+
+        <div class="block" style="margin-top: 1vw;">
+            <h1 style="text-align: center;">Contact Form</h1>
+        </div>
+
+        <form action="http://mstc.brentapresley.com/HTMLFormTest.php" target="_blank" method="GET">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Your name.." maxlength="30" autofocus
+                required>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Your last name.." maxlength="36" required>
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="example@email.com" required>
+            <label for="msg">Message</label>
+            <textarea name="msg" id="msg" placeholder="Leave a message here.." required></textarea>
+            <label>Please leave this site a rating:</label>
+            <div class="form-group">
+                <label for="rating_1">1</label>
+                <input type="radio" id="rating_1" name="rating" value="1/5" required>
+                <label for="rating_2">2</label>
+                <input type="radio" id="rating_2" name="rating" value="2/5">
+                <label for="rating_3">3</label>
+                <input type="radio" id="rating_3" name="rating" value="3/5">
+                <label for="rating_4">4</label>
+                <input type="radio" id="rating_4" name="rating" value="4/5">
+                <label for="rating_5">5</label>
+                <input type="radio" id="rating_5" name="rating" value="5/5">
+            </div>
+            <div class="form-group">
+                <label class="inline" for="robot">I am not a robot:</label>
+                <input type="checkbox" id="robot" name="robot" value="no" required>
+            </div>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>

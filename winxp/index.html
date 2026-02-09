@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP Desktop</title>
+    <link rel="stylesheet" href="Windows.css">
+    <!-- Declare Javascript Functions here -->
+    <script src="Utils.js"></script>
+    <script src="Windows.js"></script>
+    <script src="Gallery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Splash screen upon first load (add "#loaded" to the end of URL to disable) -->
+        <div id="loading-screen">
+            <div id="logo"></div>
+        </div>
+        <!-- This is the "desktop", where all of the window elements reside -->
+        <div id="desktop">
+            <!-- mouse debug logger: see bottom script for more info -->
+            <p id="log"></p>
+            <!-- Windows XP bubble message (tutorial) -->
+            <div id="tutorial-msg">
+                <h1>Welcome!</h1>
+                <div onclick="
+                    document.getElementById('tutorial-msg').style.display = 'none';
+                    playAudio('./sfx/xp/Windows XP Minimize.mp3', 1);
+                    "></div>
+                <p>Double-click an icon to get started.</p>
+            </div>
+            <!-- This section defines the icons placed on the desktop
+                    on double-clicked, they will run a function to open
+                    a window (or bring to front if already open)         -->
+            <div class="icons">
+                <div class="item" ondblclick="wm.open_window('home')">
+                    <div class="icon" style="background-image: url(img/icons/home.png);"></div>
+                    <p>Home Page</p>
+                </div>
+                <div class="item" ondblclick="wm.open_window('about')">
+                    <div class="icon" style="background-image: url(img/icons/question-bubble.png);"></div>
+                    <p>About Me</p>
+                </div>
+                <div class="item" ondblclick="wm.open_window('contact')">
+                    <div class="icon" style="background-image: url(img/icons/mail.png);"></div>
+                    <p>Contact</p>
+                </div>
+                <div class="item" ondblclick="wm.open_window('gallery')">
+                    <div class="icon" style="background-image: url(img/icons/folder-photos.png);"></div>
+                    <p>Gallery</p>
+                </div>
+                <div class="item" ondblclick="wm.open_window('video')">
+                    <div class="icon" style="background-image: url(img/icons/video.png);"></div>
+                    <p>Video</p>
+                </div>
+                <!-- TODO: finish last page! -->
+                <div class="item" ondblclick="wm.open_window('countdown')">
+                    <div class="icon" style="background-image: url(img/icons/stopwatch.png);"></div>
+                    <p>Countdown</p>
+                </div>
+            </div>
+            <!-- This section defines the window elements.             
+                    Inside contains all the function calls that control    
+                basic operations of closing and highlighting the window. 
+                Move/Drag functionality is added via the Window Manager  
+                "init" call at the end of this HTML document.            -->
+            <div id="home" class="window" onmousedown="wm.raise_window('home')">
+                <!-- This window's blue navigation bar. -->
+                <div class="topbar">
+                    <!-- close button -->
+                    <div class="win-close" onclick="wm.close_window('home')"></div>
+                    <!-- window icon -->
+                    <img src="img/icons/home.png">
+                    <h1>Home</h1>
+                </div>
+                <!-- container for window content (either iframe or direct 
+                 HTML via JS fetch) -->
+                <div class="content">
+                    <iframe src="home.html" frameborder="0" width="100%" height="100%" on
+                        onmousedown="wm.raise_window('home')"></iframe>
+                </div>
+            </div>
+            <div id="about" class="window" onmousedown="wm.raise_window('about')">
+                <div class="topbar">
+                    <div class="win-close" onclick="wm.close_window('about')"></div>
+                    <img src="img/icons/question-bubble.png">
+                    <h1>About Me</h1>
+                </div>
+                <div class="content" id="about_content">
+                    <iframe src="about.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+            <div id="contact" class="window" onmousedown="wm.raise_window('contact')">
+                <div class="topbar">
+                    <div class="win-close" onclick="wm.close_window('contact')"></div>
+                    <img src="img/icons/mail.png">
+                    <h1>Contact</h1>
+                </div>
+                <div class="content">
+                    <iframe src="contact.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+            <div id="gallery" class="window" onmousedown="wm.raise_window('gallery')">
+                <div class="topbar">
+                    <div class="win-close" onclick="wm.close_window('gallery')"></div>
+                    <img src="img/icons/folder-photos.png">
+                    <h1>Photo Gallery</h1>
+                </div>
+                <div class="content">
+                    <iframe src="gallery.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+            <div id="video" class="window" onmousedown="wm.raise_window('video')">
+                <div class="topbar">
+                    <div class="win-close" onclick="wm.close_window('video')"></div>
+                    <img src="img/icons/video.png">
+                    <h1>Video</h1>
+                </div>
+                <div class="content">
+                    <iframe src="video.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+            <div id="countdown" class="window" onmousedown="wm.raise_window('countdown')">
+                <div class="topbar">
+                    <div class="win-close" onclick="wm.close_window('countdown')"></div>
+                    <img src="img/icons/stopwatch.png">
+                    <h1>Graduation Countdown</h1>
+                </div>
+                <div class="content">
+                    <iframe src="countdown.html" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- This defines the XP taskbar, including the start menu button and clock! -->
+        <div id="taskbar">
+            <div id="start" onclick="playAudio('./sfx/xp/Windows XP Ding.mp3',1)"></div>
+            <div id="toasts"></div>
+            <p id="clock"></p>
+        </div>
+    </div>
+    <script>
+        // window manager initialization (after "window" elements are loaded in)
+        wm.init();
+
+        //            preload window page content
+        // (ONLY WORKS ON LIVE SERVER DUE TO CORS security!!!)
+        //
+        //   This will overwrite the iframes (thus fixing a few bugs) but will fail to 
+        // load if ran outside a development environment or live server. For quick 
+        // results, install the "Live Server" extension on VS Code to get things up 
+        // and running.  ~ Will B.
+
+        loadHTMLFile('./home.html', document.querySelector("#home .content"));
+        loadHTMLFile('./about.html', document.querySelector("#about .content"));
+        loadHTMLFile('./gallery.html', document.querySelector("#gallery .content"));
+        loadHTMLFile('./video.html', document.querySelector("#video .content"));
+        loadHTMLFile('./contact.html', document.querySelector("#contact .content"));
+        loadHTMLFile('./countdown.html', document.querySelector("#countdown .content"));
+
+        // ##########################################################
+        // ##                Graduation Countdown                  ##
+        // ##########################################################
+
+        // Set the date we're counting down to: May 17, 2027 23:59:59
+        var countDownDate = new Date("May 17, 2027 23:59:59").getTime();
+
+        // Update the count down every 1 second
+        var countdown = setInterval(function () {
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24)) % 365;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("counter").innerHTML = years + "y " + days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+            
+            // open the window just before the final countdown to the user can see!
+            if (years <= 0 && days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 10) {
+                if (!wm.get_open_windows().includes('countdown')){
+                    wm.open_window('countdown');
+                }
+                if (seconds > 0) {
+                    playAudio('./sfx/xp/Windows XP Information Bar.mp3',0.8);
+                } else {
+                    clearInterval(countdown);
+                    // count down is over, write some text 
+                    document.getElementById("counter").style.color = "green";
+                    document.getElementById("counter").innerHTML = "I HAVE GRADUATED!";
+                    // TADA.MP3
+                    playAudio('./sfx/xp/tada.mp3', 1);
+                }
+            } else {
+                if (wm.get_open_windows().includes('countdown')) {
+                    playAudio('./sfx/xp/Windows XP Start.mp3', 0.75);
+                }
+            }
+        }, 1000);
+
+        gm.register_images();
+
+        // DEBUG MOUSE
+        // addEventListener('mousemove', (e) => {
+        //     let log = document.getElementById('log');
+        //     log.innerText = `Screen X/Y: (${e.screenX}, ${e.screenY})
+        //     Client X/Y: (${e.clientX}, ${e.clientY})
+        //     Active Window: ${active_window}`
+        // });
+    </script>
+</body>
+
+</html>

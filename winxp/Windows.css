@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.container {
+    /* set size, aspect-ratio */
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url(img/backgrounds/xp-rolling-hills.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#desktop {
+    width: 100vw;
+    height: 94vh;  
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.icons .item {
+    display: inline-block;
+    background-color: none;
+    width: 4vw;
+    height: 4vw;
+    
+    color: whitesmoke;
+
+    margin: 0.5vw 0.24vw;
+    overflow: visible;
+}
+.icons .item:hover {
+    background-color: rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+}
+.icons .item:active {
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.icons .item .icon {
+    /* icon size */
+    width: 3.5vw;
+    height: 3.5vw;
+    background-size: cover;
+    /* icon center-allign */
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+
+    pointer-events: none;
+    
+}
+.icons .item p {
+    /* clear formatting for text */
+    font-size: 0.8vw;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.15vw;
+    text-align: center;
+
+    text-shadow: 0.08vw 0.08vw rgba(0, 0, 0, 0.75);
+}
+
+
+.window {
+    /* hide until JS function call */
+    display: none;
+    position: absolute;
+
+    top: 128px;
+    left: 128px;
+
+    width: 35%;
+    aspect-ratio: 1.225 / 1;
+
+    background-image: url(img/window.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+.window .topbar {
+    height: 7%;
+    /* background-color: rgba(0,0,0,0.5); */
+}
+
+.window .topbar .win-close {
+    float: right;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: none;
+}
+.window .topbar .win-close:hover {
+    background-color: rgba(255, 0,0,0.15);
+    cursor: pointer;
+}
+.window .topbar h1 {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    /* font styling */
+    color: whitesmoke;
+    font-size: 1.25vw;
+    font-weight: normal;
+    /* positioning fix */
+    position: fixed;
+    transform: translate(0.5vw,0.3vw);
+
+    pointer-events: none;
+}
+.window .topbar img {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+
+    height: 80%;
+    width: auto;
+    transform: translate(0.5vh,0.50vh);
+
+    padding-right: 1vh;
+
+    pointer-events: none;
+}
+.window .content {
+    margin-left: 0.32vh;
+    margin-right: 0.24vh;
+    height: 92%;
+    overflow: scroll;
+}
+
+#taskbar {
+    background-image: url(img/taskbar-main.png);
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: bottom;
+
+    /* size/positioning */
+    width: 100%;
+    height: 2.6vw;
+    position: absolute;
+    bottom: 0;
+
+    /* prevent windows from covering taskbar */
+    z-index: 10;
+}
+#taskbar #start {
+    display: inline-block;
+    background-image: url(img/taskbar-start.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    
+    height: 100%;
+    aspect-ratio: 3.25 / 1;
+    
+}
+#taskbar #start:hover {
+    filter: brightness(110%);
+}
+#taskbar #start:active {
+    filter: brightness(80%);
+}
+#taskbar #toasts {
+    display: block;
+    background-image: url(img/taskbar-toasts.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    
+    height: 100%;
+    aspect-ratio: 3.97 / 1;
+    float: right;
+}
+#taskbar #clock {
+    padding: 0;
+    margin: 0;
+    /* font styling */
+    color: whitesmoke;
+    font-size: 1.5vw;
+    letter-spacing: 0.05em;
+
+    text-shadow: 0.08vw 0.08vw rgba(0, 0, 0, 0.75);
+
+    /* clock positioning hack */
+    position: absolute;
+
+    right: 0.25vw;
+    bottom: 50%;
+    transform: translateY(55%);
+}
+
+#loading-screen {
+    background-color: black;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 50;
+}
+#loading-screen #logo {
+    background-image: url(img/backgrounds/loading-screen.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* logo sizing */
+    width: 25%;
+    aspect-ratio: 1.329 / 1;
+    /* logo center position fix */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+    z-index: 51;
+}
+
+#tutorial-msg {
+    background-image: url(img/xp-balloon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 5vw;
+    aspect-ratio: 5.948 / 1;
+
+    display: none;
+
+    position: absolute;
+    top: 2vw;
+    left: 5vw;
+}
+#tutorial-msg p,h1 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+#tutorial-msg h1 {
+    display: inline-block;
+    margin-top: 0.8vw;
+    margin-left: 5vw;
+    font-size: 1vw;
+}
+#tutorial-msg p {
+    margin: 0;
+    padding: 0;
+    font-size: 1vw;
+}
+#tutorial-msg div {
+    /* this is the close button */
+    width: 1.5vw;
+    height: 1.5vw;
+    margin: 0.65vw;
+
+    float: right;
+
+    /* background-color: rgb(220, 20, 60); */
+}
+#tutorial-msg div:hover {
+    background-color: rgba(0,0,0,0.24);
+}
+
+#log {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}

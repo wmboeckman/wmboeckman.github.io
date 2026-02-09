@@ -1,0 +1,46 @@
+.container {
+    /*background-color: steelblue;*/
+}
+
+header {
+    /*background-color: rebeccapurple;*/
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.title {
+    margin: 0;
+}
+
+
+footer .container {
+    /*background-color: darkslategray;*/
+}
+
+
+/* WINXP SANDBOX STUFF */
+iframe#sandbox {
+    display:block;
+    margin: 0 auto;
+    aspect-ratio: 16 / 10;
+    width: 100%;
+} 
+
+@media (min-width: 1000px) {
+    iframe#sandbox {
+        display:block;
+        margin: 0 auto;
+        aspect-ratio: 16 / 10;
+        width: 80%;
+    } 
+}
+
+@media (min-width: 1400px) {
+    iframe#sandbox {
+        display:block;
+        margin: 0 auto;
+        aspect-ratio: 16 / 10;
+        width: 60%;
+    } 
+}
+
